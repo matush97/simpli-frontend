@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {listAnnouncements} from "../../services/announcement";
+import AnnouncementList from "../components/AnnouncementList";
 
 function AnnouncementsPage() {
     const [announcements, setAnnouncements] = useState([]);
@@ -27,7 +28,7 @@ function AnnouncementsPage() {
         <div>
             <h1>Announcements</h1>
 
-            {loading ? <p>Loading...</p> : <>AnnouncementList</>}
+            {loading ? <p>Loading...</p> : <AnnouncementList announcements={announcements}/>}
         </div>
     )
 }
