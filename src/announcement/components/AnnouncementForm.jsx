@@ -12,12 +12,12 @@ function AnnouncementForm(props) {
 
     const {id} = useParams();
     const navigate = useNavigate();
-    const [selectedCategory, setSelectedCategory] = useState(announcement.category);
+    const [selectedCategory, setSelectedCategory] = useState(announcement?.category);
 
     const [form, setForm] = useState({
-        title: announcement.title ?? "",
-        content: announcement.content ?? "",
-        publicationDate: announcement.publicationDate ? isoToFormatDate(announcement.publicationDate) : ""
+        title: announcement?.title ?? "",
+        content: announcement?.content ?? "",
+        publicationDate: announcement?.publicationDate ? isoToFormatDate(announcement.publicationDate) : ""
     })
 
 
