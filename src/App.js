@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import AnnouncementsPage from "./announcement/pages/AnnouncementsPage";
+import AnnouncementListPage from "./announcement/pages/AnnouncementListPage";
 import AnnouncementDetailPage from "./announcement/pages/AnnouncementsDetailPage";
 
 
@@ -7,7 +7,7 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<AnnouncementsPage />}/>
+                <Route path="/" element={<AnnouncementListPage />}/>
                 <Route path="/announcement/:id" element={<AnnouncementDetailPage />}  />
             </Routes>
         </BrowserRouter>
