@@ -21,9 +21,9 @@ function AnnouncementTable({announcements, loading}) {
     function getCategories(rowData) {
         return rowData.category.map((item, index) => {
             if (index + 1 === rowData.category.length){
-                return item
+                return item.label
             }
-            return item + ", "
+            return item.label + ", "
         })
     }
 
