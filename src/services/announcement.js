@@ -1,5 +1,9 @@
 import {baseApi} from "./base";
 
+export function createAnnouncement(data) {
+    return baseApi.post("api/announcement/create", data).then(res => res.data)
+}
+
 export function updateAnnouncement(data) {
     return baseApi.patch("api/announcement/update", data).then(res => res.data)
 }

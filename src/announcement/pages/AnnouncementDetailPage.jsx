@@ -4,7 +4,7 @@ import {getAnnouncement} from "../../services/announcement";
 import {listCategory} from "../../services/category";
 import AnnouncementForm from "../components/AnnouncementForm";
 
-function AnnouncementsDetailPage() {
+function AnnouncementDetailPage() {
     const {id} = useParams();
     const [loading, setLoading] = useState(false);
     const [announcement, setAnnouncement] = useState({});
@@ -13,11 +13,11 @@ function AnnouncementsDetailPage() {
     async function loadData() {
         setLoading(true)
         try {
-            const data = await getAnnouncement(id);
-            setAnnouncement(data)
-
             const categories = await listCategory();
             setCategoryList(categories)
+
+            const data = await getAnnouncement(id);
+            setAnnouncement(data)
         } catch (e) {
             console.log(e)
         } finally {
@@ -34,4 +34,4 @@ function AnnouncementsDetailPage() {
     );
 }
 
-export default AnnouncementsDetailPage;
+export default AnnouncementDetailPage;

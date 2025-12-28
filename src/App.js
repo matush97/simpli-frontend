@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AnnouncementListPage from "./announcement/pages/AnnouncementListPage";
-import AnnouncementDetailPage from "./announcement/pages/AnnouncementsDetailPage";
+import AnnouncementDetailPage from "./announcement/pages/AnnouncementDetailPage";
+import AnnouncementsDetailPage from "./announcement/pages/AnnouncementDetailPage";
 
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<AnnouncementListPage />}/>
                 <Route path="/announcement/:id" element={<AnnouncementDetailPage />}  />
+                <Route path="/announcement" element={<AnnouncementsDetailPage />}  />
             </Routes>
         </BrowserRouter>
     );
