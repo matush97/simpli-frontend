@@ -2,7 +2,7 @@ import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getAnnouncement} from "../../services/announcement";
 import {listCategory} from "../../services/category";
-import AnnouncementDetail from "../components/AnnouncementDetail";
+import AnnouncementForm from "../components/AnnouncementForm";
 
 function AnnouncementsDetailPage() {
     const {id} = useParams();
@@ -30,7 +30,7 @@ function AnnouncementsDetailPage() {
     }, [id]);
 
     return (
-        loading ? <p>Loading...</p> : <AnnouncementDetail announcement={announcement} categoryList={categoryList}/>
+        loading ? <p>Loading...</p> : <AnnouncementForm announcement={announcement} categoryList={categoryList}/>
     );
 }
 
