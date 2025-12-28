@@ -3,10 +3,11 @@ export const validateDate = (date) => {
     return regex.test(date);
 };
 
-export const isoToFormatDate = (isoString) => {
-    const date = new Date(isoString);
+const pad = (n) => String(n).padStart(2, '0');
+const months = ["Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec"];
 
-    const pad = (n) => String(n).padStart(2, '0');
+export const isoToFormatDate = (isoDate) => {
+    const date = new Date(isoDate);
 
     const month = pad(date.getMonth() + 1);
     const day = pad(date.getDate());
@@ -16,4 +17,21 @@ export const isoToFormatDate = (isoString) => {
     const minutes = pad(date.getMinutes());
 
     return `${month}/${day}/${year} ${hours}:${minutes}`;
+}
+
+export const convertDate = (isoDate, fullDate = true) => {
+    const date = new Date(isoDate);
+
+    const month = months[date.getMonth()];
+    const day = pad(date.getDate());
+    const year = date.getFullYear();
+
+    if (fullDate) {
+        const hours = pad(date.getHours());
+        const minutes = pad(date.getMinutes());
+
+        return `${month} ${day}, ${year} ${hours}:${minutes}`;
+    }
+
+    return `${month} ${day}, ${year}`;
 }

@@ -1,1 +1,1 @@
-export {validateDate, isoToFormatDate} from "./date-format";
+export {validateDate, isoToFormatDate, convertDate} from "./date-format";
