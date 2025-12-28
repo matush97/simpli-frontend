@@ -5,6 +5,7 @@ import {InputTextarea} from 'primereact/inputtextarea';
 import { Button } from 'primereact/button';
 import {isoToFormatDate, validateDate} from "../../utils";
 import {useNavigate, useParams} from "react-router-dom";
+import {updateAnnouncement} from "../../services/announcement";
 
 function AnnouncementForm(props) {
     const {announcement, categoryList} = props;
@@ -20,7 +21,7 @@ function AnnouncementForm(props) {
     })
 
 
-    function handleSubmit() {
+    async function handleSubmit() {
         if (!form.title || !form.content || !selectedCategory?.length || !form.publicationDate) {
             alert('All fields are required');
             return;
@@ -31,8 +32,6 @@ function AnnouncementForm(props) {
             return;
         }
 
-        const method = "PATCH"
-        const url = `http://localhost:3001/api/announcement/update`;
         const publicationDateIso = new Date(form.publicationDate);
         const inputObject = {
             ...form,
@@ -41,12 +40,9 @@ function AnnouncementForm(props) {
             publicationDate: publicationDateIso
         };
 
-        fetch(url, {
-            method,
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(inputObject)
-        }).then(() => navigate('/'));
+        updateAnnouncement(inputObject)
 
+        return navigate('/');
     }
 
     return (
